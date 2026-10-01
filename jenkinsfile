@@ -1,0 +1,18 @@
+pipeline{
+    agent any
+
+    stages{
+        stage('build image'){
+            steps{
+                sh 'docker build -t page1:latest .'
+            }
+        }
+        stage('run image'){
+            steps{
+                sh 'docker run -d -p 8000:80 --name webpage page1:latest'
+                sh 'docker images'
+                sh 'docker ps'
+                }
+        }
+    }
+}
