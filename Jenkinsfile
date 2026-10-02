@@ -15,8 +15,9 @@ pipeline{
                 sh 'docker ps'
                 }
         }
-  post{
-    success { echo ' deployed open in http://localhost:8000' }
-    failed { echo ' something is failed, chech the logs ' }
+     post{
+       success { echo ' deployed open in http://localhost:8000' }
+       failed { echo ' something is failed, chech the logs ' }
     }
+}
 }
